@@ -42,6 +42,7 @@ public class ProductService {
             return new ResponseEntity<>(new Message("Este producto ya existe", true, null),
                     HttpStatus.BAD_REQUEST);
         List<ProductImage> images = product.getImages();
+        product.setImages(null);
         Product idProduct = productRepository.saveAndFlush(product);
         images.forEach(image -> image.setProduct(idProduct));
         idProduct.setImages(images);

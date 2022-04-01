@@ -22,7 +22,7 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "subcategory_id")
     private Subcategory subcategory;
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<ProductImage> images;
 
     public Product() {

@@ -11,9 +11,10 @@ public class ProductImage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @Column(columnDefinition = "blob")
+    @Column(columnDefinition = "longblob")
     private byte[] fileBase64;
     @ManyToOne
+    @JoinColumn(name = "product_id")
     @JsonIgnore
     private Product product;
 
